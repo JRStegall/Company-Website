@@ -4,6 +4,15 @@ header {
     margin: auto;
 }
 
+h2 {
+    margin-left: 50px;
+}
+
+p {
+    margin-left: 20px;
+}
+
+
 .container {
     background-color: beige;
     padding: 100px;
