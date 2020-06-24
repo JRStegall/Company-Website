@@ -8,6 +8,10 @@ h2 {
     margin-left: 50px;
 }
 
+h5 {
+    margin-left: 50px;;
+}
+
 p {
     margin-left: 20px;
 }
@@ -17,18 +21,25 @@ p {
     background-color: beige;
     padding: 100px;
     overflow: auto;
+    border: groove gray;
 }
 .left-side {
     background-color: cadetblue;
-    width: 48%;
+    width: 50%;
     height: 950px;
     float: left;
+    border-bottom: groove;
+    border-left: groove;
+    border-top: groove;
 }
 .right-side{
     background-color: darkgray;
     width: 50%;
     height: 950px;
     float: left;
+    border-top: groove;
+    border-right: groove;
+    border-bottom: groove;
 }
 .form-item {
     margin-top: 10px;
@@ -39,4 +50,8 @@ p {
 }
 form {
     padding-left: 10px;
+}
+
+#entered_bio {
+    margin-left: 25px;
 }

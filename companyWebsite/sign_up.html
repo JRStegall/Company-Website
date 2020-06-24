@@ -8,7 +8,7 @@
         crossorigin="anonymous">
 
         <script type="text/javascript">
-          var myCaptchaNumber = 12;
+          var myCaptchaNumber = Math.floor(Math.random() * 25);
           function formSubmitted() {
               var enteredCaptcha = document.getElementById("form_captcha").value;
               if(myCaptchaNumber == enteredCaptcha) {
@@ -19,10 +19,19 @@
                   document.getElementById("entered_email").innerHTML = email;
 
                   var age = document.getElementById("form_age").value;
+                  if(age < 21){
+                    alert("MUST BE 21 TO JOIN")
+                  }else{
                   document.getElementById("entered_age").innerHTML= "Your age is " + age;
+                  }
+                  var gender = document.getElementById("gender").value;
+                  document.getElementById("entered_gender").innerHTML = "You are " + gender;
 
-                  /*var gender = document.getElementById("gender").value;
-                  document.getElementById("entered_gender").innerHTML = gender;*/
+                  /*var genderFemale = document.getElementById("female").value;
+                  document.getElementById("entered_gender").innerHTML = "You are a " + genderFemale;
+
+                  var gender = document.getElementById("other").value;
+                  document.getElementById("entered_gender").innerHTML = "You are a nonbinary human, welcome!" ;*/
 
                   var bio = document.getElementById("form_bio").value;
                   if(bio != ''){
@@ -36,6 +45,7 @@
                     name: name,
                     email: email,
                     age: age,
+                    gender: gender,
                     bio: bio
                 }
                 console.log(allItems);
@@ -47,6 +57,8 @@
               document.getElementById("entered_email").innerHTML = '';
               document.getElementById("form_age").value = '';
               document.getElementById("entered_age").innerHTML = '';
+              document.getElementById("gender").value = '';
+              document.getElementById("entered_gender").innerHTML = '';
               document.getElementById("form_bio").value = '';
               document.getElementById("entered_bio").innerHTML = '';
           }
@@ -96,14 +108,17 @@
                       <input type="number" id="form_age" />
                   </div>
 
-                  <div><form id="gender" action="/action_page.php">
-                    <p>Please select your gender:</p>
+                  <div id="gender">
+                    <!--<form action="/action_page.php">-->
+                    <p>Please select your gender identity:</p>
                     <input type="radio" id="male" name="gender" value="male">
                     <label for="male">Male</label><br>
                     <input type="radio" id="female" name="gender" value="female">
                     <label for="female">Female</label><br>
                     <input type="radio" id="other" name="gender" value="other">
-                    <label for="other">Other</label></div>
+                    <label for="other">Other</label>
+                  </div>
+                  
 
 
 
@@ -114,7 +129,7 @@
                   <div class="form-item">
                       <label>Captcha</label>
                       <input id="form_captcha" type="text" />
-                      <p>Enter the number <span id="captcha_number"></span> to prove your human.</p>
+                      <p>Enter the number <span id="captcha_number"></span> to prove you're human.</p>
                   </div>
                   <input type="button" value="Submit Form" onclick="formSubmitted()" />
                   <input type="button" value="Clear Me" onclick="clearForm()" />
