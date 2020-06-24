@@ -6,5 +6,22 @@ header {
 
 .card {
     padding: 30px;
-    margin: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.card:hover {
+    cursor: pointer;
+    border: 2px solid gray;
+}
+
+.teaminfo {
+    margin-top: 50px;
+    text-align: center;
+    background: rgb(82, 166, 240);
+}
+
+.teaminfo p {
+    padding: 30px;
+    margin-top: 15px;
 }
