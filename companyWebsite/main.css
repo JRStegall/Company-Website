@@ -3,3 +3,9 @@ header {
     width: 60%;
     margin: auto;
 }
+
+.card {
+    float: left;
+    padding: 20px;
+    margin: 60px;
+}
