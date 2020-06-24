@@ -3,3 +3,31 @@ header {
     width: 60%;
     margin: auto;
 }
+
+.container {
+    background-color: beige;
+    padding: 100px;
+    overflow: auto;
+}
+.left-side {
+    background-color: cadetblue;
+    width: 48%;
+    height: 950px;
+    float: left;
+}
+.right-side{
+    background-color: darkgray;
+    width: 50%;
+    height: 950px;
+    float: left;
+}
+.form-item {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.form-item > label {
+    display: block;
+}
+form {
+    padding-left: 10px;
+}
