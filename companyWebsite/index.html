@@ -9,16 +9,62 @@
         <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
    <style>
-      .container-3-row{
+    body {
+      background-image: url("https://images.unsplash.com/photo-1561652722-ba28a38150af?ixlib=rb-1.2.1&w=1000&q=80")
+    }
+    .container-fluid {
+      font-family: Arial, Helvetica, sans-serif;
+      color: black;
+      
+    }
+    .container-3-row{
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-      }
+               
+    }
+    .container-2-row{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        
+    }
+    .size {
+        width: 450px;
+    }
+    .content {
+        overflow: scroll;  
+    }
+    img {
+      border-radius: 50%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;    
+    }
+    h2 {
+      color: orangered;
+    }
+    h3 {
+      font-size: 60px;
+      color: red;
+    }
+    h4 {
+      color: orangered;
+    }
+    p {
+      color: orangered;
+    }
+    .col-md-12 {
+      border: solid;
+      border-color: black;
+      height: 200px;
+      background-color: lightblue;
+    }
     </style>
-     </head>
+    </head>
 
     <body>
-      <!--Navigation-->
+<!--Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="index.html">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,36 +82,54 @@
             </div>
           </nav>
 <!--Company header-->
-        <header>
-            <h1>Company Website</h1>
-            <h3>Home</h3>
-        </header>
-        <hr>
-        
+        <div class="content">
+            <header>
+              <h1>Company Website</h1>
+              <h3>Home</h3>
+          </header>
+          <hr>
+          <main>
 <!--Mission statement-->
-        <div>
-          <h3 style="font-family: Libre Baskerville;">Our Mission Statement</h3>
-          <p style="font-family: Libre Baskerville;"><i>"Our goal is to connect People with the power of Beer, Music, and Socializing" -Anonymous.</i> </p>
-        </div>
-<!--Header and Youtube -->
-        <main>
-          <div class="container-fluid padding">
+          <div class="container-fluid ">
+            <div class="row padding">
+              <div class="col-lg-6">
+                <h2>Our Mission...</h2>
+                <br>
+                <h4>Vision</h4>
+                <p>Through all over our products, service and relationships, we will add to life's enjoyment</p>
+                <h4>Goals</h4>
+                <p>Be the world's beer company</p>
+                <p>Enrich and entertain a global audience</p>
+                <p>Deliver asuperior returns to our shareholders</p>
+                <br>
+                <hr>
+              </div>
+              <div class="col-lg-6 beer-co">
+                <img style="height: 350px;"  src="beer-co.jpeg" class="img-fluid">
+              </div>
+              <hr>
+            </div>
+          </div>     
+          <br>
+          <br>   
+<!--Header for Youtube clips -->
+          <div class="container-fluid ">
             <div class="row text-center padding">
             
               <div class="col-xs-12 col-sm-6 col-md-4">
-                <i class="fas fa-code"></i>
+              
                 <h3>BEER</h3>
                 <p>Learn Where the Best Drink in the world came from!</p>
               </div>
             
               <div class="col-xs-12 col-sm-6 col-md-4">
-                <i class="fas fa-bold"></i>
+              
                 <h3>MUSIC</h3>
                 <p>See how far we've come in Music!</p>
               </div>
             
               <div class="col-xs-12 col-sm-6 col-md-4">
-                <i class="fas fa-css3"></i>
+                
                 <h3>Social</h3>
                 <p>Learn how to Social Media had changed Us Forever!</p>
               </div>
@@ -76,7 +140,27 @@
               <iframe class="col-xs-12 col-sm-4 col-md-4" width="300" height="200" src="https://www.youtube.com/embed/i1MXYDkXZAE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               <iframe class="col-xs-12 col-sm-4 col-md-4" width="300" height="200" src="https://www.youtube.com/embed/LgF3xh76Hcg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
+<!--2 column section-->
+
         </main>
+        </div>
+        <br>
+        <br>
+
+<!--footer-->
+          <div class="container-fluid container-2-row">
+          <div>
+            <div class="col-md-12"> 
+              <p><strong>Contact Us</strong></p> 
+              <p>555-555-5555</p> 
+              <p>BeerCo@example.com</p> 
+              <p>100 Street Name</p> 
+              <p>City, State, 00000</p> 
+            </div>
+          </div>
+          </div>
+          </body>
+       
 
     </body>
 </html>
