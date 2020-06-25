@@ -24,14 +24,11 @@
                   }else{
                   document.getElementById("entered_age").innerHTML= "Your age is " + age;
                   }
-                  var gender = document.getElementById("gender").value;
-                  document.getElementById("entered_gender").innerHTML = "You are " + gender;
+                  var gender = document.getElementById("male").value;
+                    document.getElementById("entered_gender").innerHTML = "You are " + gender;
 
-                  /*var genderFemale = document.getElementById("female").value;
-                  document.getElementById("entered_gender").innerHTML = "You are a " + genderFemale;
-
-                  var gender = document.getElementById("other").value;
-                  document.getElementById("entered_gender").innerHTML = "You are a nonbinary human, welcome!" ;*/
+                  /*var female = document.getElementById("female").value;
+                    document.getElementById("entered-gender").innerHTML = "You are " + female; */
 
                   var bio = document.getElementById("form_bio").value;
                   if(bio != ''){
@@ -123,7 +120,7 @@
 
 
                   <div class="form-item">
-                      <label>Bio</label>
+                      <label>Tell us about yourself!</label>
                       <textarea id="form_bio" cols="20" rows="5"></textarea>
                   </div>
                   <div class="form-item">
