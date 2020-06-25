@@ -1,125 +1,141 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            .container {
-                background-color: beige;
-                padding: 100px;
-                overflow: auto;
-            }
-            .left-side {
-                background-color: cadetblue;
-                width: 48%;
-                height: 950px;
-                float: left;
-            }
-            .right-side{
-                background-color: darkgray;
-                width: 50%;
-                height: 950px;
-                float: left;
-            }
-            .form-item {
-                margin-top: 10px;
-                margin-bottom: 5px;
-            }
-            .form-item > label {
-                display: block;
-            }
-            form {
-                padding-left: 10px;
-            }
-        </style>
-        <script type="text/javascript">
-            var myCaptchaNumber = 12;
-            function formSubmitted() {
-                var enteredCaptcha = document.getElementById("form_captcha").value;
-                if(myCaptchaNumber == enteredCaptcha) {
-                    var name = document.getElementById("name").value;
-                    document.getElementById("entered_name").innerHTML = name; 
-                    var email = document.getElementById("form_email").value
-                    document.getElementById("entered_email").innerHTML = email; 
-                    var age = document.getElementById("form_age").value;
-                    document.getElementById("entered_age").innerHTML= "Your age is " + age;
-                    var bio = document.getElementById("form_bio").value;
-                    if(bio != ''){
-                        var bio_header = '<h5>My Bio</h5>';
-                        document.getElementById("entered_bio").innerHTML = bio_header + bio;
+        <title>Company Website</title>
+        <link rel=“stylesheet” href=“main.css”/>
+        <link rel=“stylesheet” href=“https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css”
+        integrity=“sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk”
+        crossorigin=“anonymous”>
+        <script type=“text/javascript”>
+          var myCaptchaNumber = Math.floor(Math.random() * 25);
+          function formSubmitted() {
+              var enteredCaptcha = document.getElementById(“form_captcha”).value;
+              if(myCaptchaNumber == enteredCaptcha) {
+                  var name = document.getElementById(“name”).value;
+                  document.getElementById(“entered_name”).innerHTML = name;
+                  var email = document.getElementById(“form_email”).value
+                  document.getElementById(“entered_email”).innerHTML = email;
+                  var age = document.getElementById(“form_age”).value;
+                  if(age < 21){
+                    alert(“MUST BE 21 TO JOIN”)
+                  }else{
+                  document.getElementById(“entered_age”).innerHTML= “Your age is ” + age;
+                  }
+                  var gender = document.getElementById(“male”).value;
+                    document.getElementById(“entered_gender”).innerHTML = “You are ” + gender;
+                  /*var female = document.getElementById(“female”).value;
+                    document.getElementById(“entered-gender”).innerHTML = “You are ” + female; */
+                  var bio = document.getElementById(“form_bio”).value;
+                  if(bio != ‘’){
+                      var bio_header = ‘<h5>My Bio</h5>’;
+                      document.getElementById(“entered_bio”).innerHTML = bio_header + bio;
+                  }
+              } else {
+                  alert(“You have not entered the correct captcha!“);
+              }
+                  // getting values of radio using loop, then passing value to ‘entered_gender’
+                  var radios = document.getElementsByName(‘gender’);
+                  var selectedGender = ‘’;
+                  for(var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                      document.getElementById(“entered_gender”).innerHTML = radios[i].value;
                     }
-                } else {
-                    alert("You have not entered the correct captcha!");
-                }
-                const allItems = {
+                  }
+                  //creating object of captured values
+              const allItems = {
                     name: name,
                     email: email,
                     age: age,
+                    gender: gender,
+                    bio: bio
                 }
-                console.log(allItems)
-            }
-            function clearForm() {
-                document.getElementById("name").value = '';
-                document.getElementById("entered_name").innerHTML = '';
-                document.getElementById("form_email").value = '';
-                document.getElementById("entered_email").innerHTML = '';
-                document.getElementById("form_age").value = '';
-                document.getElementById("entered_age").innerHTML = '';
-                document.getElementById("form_bio").value = '';
-                document.getElementById("entered_bio").innerHTML = '';
-            }
-        </script>
+                console.log(allItems);
+          }
+          function clearForm() {
+              document.getElementById(“name”).value = ‘’;
+              document.getElementById(“entered_name”).innerHTML = ‘’;
+              document.getElementById(“form_email”).value = ‘’;
+              document.getElementById(“entered_email”).innerHTML = ‘’;
+              document.getElementById(“form_age”).value = ‘’;
+              document.getElementById(“entered_age”).innerHTML = ‘’;
+              document.getElementById(“gender”).value = ‘’;
+              document.getElementById(“entered_gender”).innerHTML = ‘’;
+              document.getElementById(“form_bio”).value = ‘’;
+              document.getElementById(“entered_bio”).innerHTML = ‘’;
+          }
+      </script>
     </head>
     <body>
-        <div class="container"></div>
-            <div class="left-side">
-                <h2>Registration Information</h2>
-                <form>
-                    <div class="form-item">
-                        <label>Persons Name</label>
-                        <input type="text" id="name" />
-                    </div>
-                    <div class="form-item">
-                        <label>Email Address</label>
-                        <input type="email" id="form_email" />
-                    </div>
-                    <div class="form-item">
-                        <label>Age</label>
-                        <input type="number" id="form_age" />
-                    </div>
-                    <p>Please <strong>Select</strong> a gender:</p>
-
-                    <form action="/action_page.php">
-                      <input type="radio" id="male" name="gender" value="male">
-                      <label for="male">Male</label><br>
-                      <input type="radio" id="female" name="gender" value="female">
-                      <label for="female">Female</label><br>
-                      <input type="radio" id="other" name="gender" value="other">
-                      <label for="other">Other</label><br><br>
-                      <input type="submit" value="Submit">
-                    </form> 
-
-                    <div class="form-item">
-                        <label>Bio</label>
-                        <textarea id="form_bio" cols="20" rows="5"></textarea>
-                    </div>
-                    <div class="form-item">
-                        <label>Captcha</label>
-                        <input id="form_captcha" type="text" />
-                        <p>Enter the number <span id="captcha_number"></span> to prove your human.</p>
-                    </div>
-                    <input type="button" value="Submit Form" onclick="formSubmitted()" />
-                    <input type="button" value="Clear Me" onclick="clearForm()" />
-                </form>
+        <nav class=“navbar navbar-expand-lg navbar-light bg-light”>
+            <a class=“navbar-brand” href=“index.html”>Home</a>
+            <button class=“navbar-toggler” type=“button” data-toggle=“collapse” data-target=“#navbarNav” aria-controls=“navbarNav” aria-expanded=“false” aria-label=“Toggle navigation”>
+              <span class=“navbar-toggler-icon”></span>
+            </button>
+            <div class=“collapse navbar-collapse” id=“navbarNav”>
+              <ul class=“navbar-nav”>
+                <li class=“nav-item active”>
+                  <a class=“nav-link” href=“about_us.html”>About Us <span class=“sr-only”>(current)</span></a>
+                </li>
+                <li class=“nav-item”>
+                  <a class=“nav-link” href=“sign_up.html”>Sign Up / Subscribe</a>
+                </li>
+              </ul>
             </div>
-            <div class="right-side">
-                <h2>Entered Information</h2>
-                <p id="entered_name"></p>
-                <p id="entered_email"></p>
-                <p id="entered_age"></p>
-                <div id="entered_bio"></div>
-            </div>
-        </div>
+          </nav>
+        <header>
+            <h1>Company Website</h1>
+            <h3>Sign Up / Subscribe</h3>
+        </header>
+        <div class=“container”>
+          <div class=“left-side”>
+              <h2>Registration Information</h2>
+              <form>
+                  <div class=“form-item”>
+                      <label>Persons Name</label>
+                      <input type=“text” id=“name” />
+                  </div>
+                  <div class=“form-item”>
+                      <label>Email Address</label>
+                      <input type=“email” id=“form_email” />
+                  </div>
+                  <div class=“form-item”>
+                      <label>Age</label>
+                      <input type=“number” id=“form_age” />
+                  </div>
+                  <div id=“gender”>
+                    <!--<form action=“/action_page.php”>-->
+                    <p>Please select your gender identity:</p>
+                    <input type=“radio” id=“male” name=“gender” value=“male”>
+                    <label for=“male”>Male</label><br>
+                    <input type=“radio” id=“female” name=“gender” value=“female”>
+                    <label for=“female”>Female</label><br>
+                    <input type=“radio” id=“other” name=“gender” value=“other”>
+                    <label for=“other”>Other</label>
+                  </div>
+                  <div class=“form-item”>
+                      <label>Tell us about yourself!</label>
+                      <textarea id=“form_bio” cols=“20” rows=“5"></textarea>
+                  </div>
+                  <div class=“form-item”>
+                      <label>Captcha</label>
+                      <input id=“form_captcha” type=“text” />
+                      <p>Enter the number <span id=“captcha_number”></span> to prove you’re human.</p>
+                  </div>
+                  <input type=“button” value=“Submit Form” onclick=“formSubmitted()”/>
+                  <input type=“button” value=“Clear Me” onclick=“clearForm()”/>
+              </form>
+          </div>
+          <div class=“right-side”>
+              <h2>Entered Information</h2>
+              <p id=“entered_name”></p>
+              <p id=“entered_email”></p>
+              <p id=“entered_age”></p>
+              <p id=“entered_gender”></p>
+              <div id=“entered_bio”></div>
+          </div>
+      </div>
     </body>
-    <script type="text/javascript">
-        document.getElementById("captcha_number").innerHTML = myCaptchaNumber;
-    </script>
+    <script type=“text/javascript”>
+      document.getElementById(“captcha_number”).innerHTML = myCaptchaNumber;
+  </script>
 </html>
